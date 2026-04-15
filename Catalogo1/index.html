@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta property="og:title" content="Studio DreamLike - Catálogo de Ensaios IA">
+<meta property="og:description" content="Transforme suas fotos com inteligência artificial profissional.">
+<meta property="og:image" content="assets/images/thiago1.webp">
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Ensaios com Inteligência Artificial</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #0d0d12;
+            --card-bg: #1a1a24;
+            --neon-blue: #00d4ff;
+            --neon-lilac: #a855f7;
+            --text-main: #ffffff;
+            --text-muted: #a0a0b0;
+            --whatsapp-green: #25d366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* PLANO DE FUNDO FLUTUANTE */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('assets/images/background-principal.webp'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        /* HEADER */
+  /* =========================================
+   CABEÇALHO E BOTÕES PREMIUM (ATUALIZADO)
+========================================= */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px;
+    background: rgba(13, 13, 18, 0.7); 
+    backdrop-filter: blur(15px) saturate(180%); /* Vidro mais nítido */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+header h1 {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+header h1 span {
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-lilac));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 5px;
+}
+
+nav a {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    padding: 10px 18px;
+    color: var(--text-main);
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px; /* Visual levemente mais quadrado/moderno */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de brilho ao passar o mouse */
+nav a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    transform: translateY(-2px);
+    color: var(--neon-blue);
+}
+
+/* Indicador de "ativo" ou clique */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--neon-blue);
+    transition: all 0.3s;
+    transform: translateX(-50%);
+}
+
+nav a:hover::after {
+    width: 60%;
+}
+
+/* Ajuste do Padding do Body */
+body {
+    padding-top: 160px; 
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        gap: 8px;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2x2 no celular para não apertar */
+    }
+    nav a {
+        padding: 8px;
+        text-align: center;
+    }
+    body { padding-top: 200px; }
+}
+
+        /* NAVEGAÇÃO POR CARDS */
+        #navegacao-cards {
+            max-width: 1200px; margin: 0 auto 60px; padding: 0 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
+        }
+        .nav-card {
+            background: var(--card-bg); border-radius: 12px; overflow: hidden;
+            text-decoration: none; color: var(--text-main); transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.05); text-align: center;
+        }
+        .nav-card:hover { transform: translateY(-5px); border-color: var(--neon-blue); }
+        .nav-card img { width: 100%; height: 150px; object-fit: cover; }
+        .nav-card h3 { padding: 15px; font-size: 1.1rem; }
+
+        /* GALERIA GRID */
+        .gallery-section { max-width: 1200px; margin: 0 auto 80px; padding: 0 20px; }
+        .gallery-section h2 { margin-bottom: 25px; border-left: 4px solid var(--neon-lilac); padding-left: 15px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+        
+        .img-wrapper { 
+            position: relative; aspect-ratio: 3/4; border-radius: 10px; 
+            overflow: hidden; background: #111; 
+        }
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: 0.4s; }
+        .img-wrapper img:hover { transform: scale(1.05); }
+
+        /* PLACEHOLDER */
+        .placeholder {
+            display: none; height: 100%; width: 100%; align-items: center; justify-content: center;
+            flex-direction: column; color: var(--text-muted); border: 1px dashed #333; text-align: center; padding: 10px;
+        }
+
+        /* BOTÃO WHATSAPP */
+        .btn-whatsapp {
+            position: fixed; bottom: 20px; right: 20px; width: 55px; height: 55px;
+            background-color: var(--whatsapp-green); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 9999; transition: 0.3s; animation: pulse 2s infinite;
+        }
+        .btn-whatsapp svg { 
+    width: 52px; 
+    height: 52px; 
+    fill: white; 
+}
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* LIGHTBOX */
+        #lightbox {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); z-index: 10000; align-items: center; justify-content: center;
+        }
+        #lightbox img { max-width: 90%; max-height: 80vh; border-radius: 5px; }
+
+        /* ANIMAÇÃO FADE */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: 0.6s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+            .btn-whatsapp { bottom: 20px; right: 20px; width: 55px; height: 55px; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/5548984587359?text=Olá! Vi seu catálogo e quero um ensaio IA." class="btn-whatsapp" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.311.145.355.491 1.2.533 1.285.043.085.072.186.015.3-.058.115-.088.19-.175.291-.086.1-.181.222-.259.302-.087.09-.178.188-.077.362.102.175.453.746.973 1.208.671.597 1.239.782 1.413.869.174.087.276.072.376-.045.101-.116.427-.496.54-.666.114-.169.232-.142.391-.083s1.011.477 1.184.563c.174.088.29.131.332.203.044.072.044.419-.1.824z"/></svg>
+    </a>
+
+<header>
+    <h1>Catálogo <span>Studio DreamLike</span></h1>
+    <nav>
+        <ul>
+            <li><a href="#aniversario">Aniversário</a></li>
+            <li><a href="#profissional">Corporativo</a></li>
+            <li><a href="#restauracao">Restauração</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- CARDS -->
+<section id="navegacao-cards" class="fade-in">
+    <a href="#aniversario" class="nav-card">
+        <img src="assets/images/capas/capaniver.webp">
+        <h3>Aniversário</h3>
+    </a>
+
+    <a href="#profissional" class="nav-card">
+        <img src="assets/images/capas/capacorp.jpg">
+        <h3>Corporativo</h3>
+    </a>
+
+    <a href="#restauracao" class="nav-card">
+        <img src="assets/images/capas/caparest.jpg">
+        <h3>Restauração</h3>
+    </a>
+</section>
+
+<!-- SEÇÕES (ordem alterada) -->
+<section id="aniversario" class="gallery-section fade-in">
+    <h2>Ensaio de Aniversário</h2>
+    <div class="grid" id="grid-aniversario"></div>
+</section>
+
+<section id="profissional" class="gallery-section fade-in">
+    <h2>Ensaio Corporativo</h2>
+    <div class="grid" id="grid-profissional"></div>
+</section>
+
+<section id="restauracao" class="gallery-section fade-in">
+    <h2>Restaurações</h2>
+    <div class="grid" id="grid-restauracao"></div>
+</section>
+
+<script>
+const categorias = [
+    { id: 'aniversario', prefixo: 'niver' },
+    { id: 'profissional', prefixo: 'prof' },
+    { id: 'restauracao', prefixo: 'rest' }
+];
+
+categorias.forEach(cat => {
+    const container = document.getElementById(`grid-${cat.id}`);
+    let content = '';
+
+    // 👇 ALTERAÇÃO PRINCIPAL AQUI
+    let totalImagens = cat.id === 'aniversario' ? 51 : 15;
+
+    for (let i = 1; i <= totalImagens; i++) {
+        const path = `assets/images/${cat.prefixo}${i}.webp`;
+        content += `
+        <div class="img-wrapper">
+            <img src="${path}" class="gallery-item" loading="lazy"
+                 onerror="this.parentElement.style.display='none';">
+            <div class="placeholder">📸<br><small>${cat.prefixo}${i}.webp</small></div>
+        </div>`;
+    }
+
+    container.innerHTML = content;
+});
+
+        // Lightbox
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        document.addEventListener('click', e => {
+            if (e.target.classList.contains('gallery-item')) {
+                lb.style.display = 'flex';
+                lbImg.src = e.target.src;
+            } else if (e.target === lb || e.target === lbImg) {
+                lb.style.display = 'none';
+            }
+        });
+
+        // Fade-in Scroll
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
